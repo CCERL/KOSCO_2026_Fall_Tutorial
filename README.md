@@ -3,15 +3,7 @@
 
 ## Download tutorial cases
 
-- Prepare a directory on your system, e.g., `yourDirectory`:
-
   ```bash
-  mkdir ~/yourDirectory/
-  cd ~/yourDirectory/
-  ```
-
-- Download tutorial cases using git:
-
-  ```bash
+  cd $FOAM_RUN
   git clone https://github.com/jjkimCombustion/KOSCO_2026_Fall_Tutorial.git
   ```
