@@ -4,7 +4,7 @@
 
 OpenFOAM tutorial cases prepared for **Day 3 of the KOSCO 2026 Fall Tutorial**.
 
-The repository contains three CFD/combustion examples arranged from a basic incompressible-flow case to reacting-flow simulations with detailed chemistry and transport.
+The repository contains three cases arranged from a basic incompressible-flow case to reacting-flow simulations with detailed chemistry and transport.
 
 ---
 
@@ -12,9 +12,9 @@ The repository contains three CFD/combustion examples arranged from a basic inco
 
 | Case | Description | Solver | Main features |
 |---|---|---|---|
-| [`1.cavity`](./1.cavity) | 2-D lid-driven cavity | `incompressibleFluid` | Incompressible Navier–Stokes, moving-wall boundary condition |
-| [`2.SandiaFlameD`](./2.SandiaFlameD) | Sandia Flame D | `multicomponentFluid` | Methane/air non-premixed flame, detailed chemistry, GRI mechanism, axisymmetric wedge mesh |
-| [`3.counterFlowFlame`](./3.counterFlowFlame) | H₂/air counterflow flame | `DTLreactingFoam` | Detailed chemistry, detailed transport, opposed-flow flame configuration |
+| [`1.cavity`](./1.cavity) | 2-D lid-driven cavity | `incompressibleFluid` | Incompressible Navier–Stokes |
+| [`2.SandiaFlameD`](./2.SandiaFlameD) | Sandia Flame D | `multicomponentFluid` | Detailed chemistry, turbulent combustion |
+| [`3.counterFlowFlame`](./3.counterFlowFlame) | H₂/air counterflow flame | `DTLreactingFoam` | Detailed chemistry, detailed transport, laminar combustion |
 
 ---
 
@@ -90,15 +90,21 @@ The simulation is performed using standard `multicomponentFluid` module in OpenF
 cd 2.SandiaFlameD
 
 blockMesh
+setFields
 foamRun
 ```
 
 For parallel execution, use the supplied decomposition settings:
 
 ```bash
+cd 2.SandiaFlameD
+
+blockMesh
+setFields
 decomposePar
 mpirun -np 4 foamRun -parallel
 reconstructPar
+rm -r processor*
 ```
 
 # 3. H₂/Air Counterflow Flame
@@ -136,6 +142,9 @@ foamRun
 Parallel execution can be performed in the same way:
 
 ```bash
+cd 3.counterFlowFlame
+
+blockMesh
 decomposePar
 mpirun -np 4 foamRun -parallel
 reconstructPar
