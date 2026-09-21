@@ -1,0 +1,3 @@
+foamRun
+touch a.foam
+open paraview
