@@ -12,7 +12,7 @@ The repository contains three CFD/combustion examples arranged from a basic inco
 
 | Case | Description | Solver | Main features |
 |---|---|---|---|
-| [`1.cavity`](./1.cavity) | 2-D lid-driven cavity | `incompressibleFluid` | Incompressible Navier–Stokes, `blockMesh`, moving-wall boundary condition |
+| [`1.cavity`](./1.cavity) | 2-D lid-driven cavity | `incompressibleFluid` | Incompressible Navier–Stokes, moving-wall boundary condition |
 | [`2.SandiaFlameD`](./2.SandiaFlameD) | Sandia Flame D | `multicomponentFluid` | Methane/air non-premixed flame, detailed chemistry, GRI mechanism, axisymmetric wedge mesh |
 | [`3.counterFlowFlame`](./3.counterFlowFlame) | H₂/air counterflow flame | `DTLreactingFoam` | Detailed chemistry, detailed transport, opposed-flow flame configuration |
 
@@ -63,7 +63,7 @@ git pull
 
 [`1.cavity`](./1.cavity) is a compact introductory case for reviewing the basic structure of an OpenFOAM simulation.
 
-The domain is a **2-D square cavity** generated with `blockMesh`. The upper wall moves in the positive x-direction while the remaining walls are stationary.
+The domain is a **2-D square cavity**. The upper wall moves in the positive x-direction while the remaining walls are stationary.
 
 The simulation is performed using standard `incompressibleFluid` module in OpenFOAM-12.
 
@@ -72,6 +72,7 @@ The simulation is performed using standard `incompressibleFluid` module in OpenF
 [`2.SandiaFlameD`](./2.SandiaFlameD) introduces a reacting-flow calculation based on the well-known **Sandia Flame D** configuration.
 
 The case uses an axisymmetric wedge mesh with separate methane-fuel, pilot, and coflow-air inlets.
+
 The simulation is performed using standard `multicomponentFluid` module in OpenFOAM-12.
 
 # 3. H₂/Air Counterflow Flame
@@ -84,14 +85,17 @@ fuel : 0.5 m/s
 air  : 0.5 m/s
 ```
 Both inlet temperatures are initialized at `300 K`. A hot internal field is supplied to initialize the reacting region.
+
 The fuel-side hydrogen mass fraction is:
 ```text
 Y_H2 = 0.0673
 ```
+
 while the air-side oxygen mass fraction is:
 ```text
 Y_O2 = 0.23
 ```
+
 The simulation is performed using custom `DTLreactingFoam` solver.
 
 ---
