@@ -1,7 +1,7 @@
-## KOSCO 2026 Fall Tutorial - Day 3 validation cases
+## KOSCO 2026 Fall Tutorial - Day 3
 
 
-## Installation
+## Download tutorial cases
 
 - Prepare a directory on your system, e.g., `yourDirectory`:
 
@@ -10,7 +10,7 @@
   cd ~/yourDirectory/
   ```
 
-- Download validation cases using git:
+- Download tutorial cases using git:
 
   ```bash
   git clone https://github.com/jjkimCombustion/KOSCO_2026_Fall_Tutorial.git
