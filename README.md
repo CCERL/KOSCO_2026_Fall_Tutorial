@@ -67,6 +67,15 @@ The domain is a **2-D square cavity**. The upper wall moves in the positive x-di
 
 The simulation is performed using standard `incompressibleFluid` module in OpenFOAM-12.
 
+### Run
+
+```bash
+cd 1.cavity
+
+blockMesh
+foamRun
+```
+
 # 2. Sandia Flame D
 
 [`2.SandiaFlameD`](./2.SandiaFlameD) introduces a reacting-flow calculation based on the well-known **Sandia Flame D** configuration.
@@ -74,6 +83,23 @@ The simulation is performed using standard `incompressibleFluid` module in OpenF
 The case uses an axisymmetric wedge mesh with separate methane-fuel, pilot, and coflow-air inlets.
 
 The simulation is performed using standard `multicomponentFluid` module in OpenFOAM-12.
+
+### Run
+
+```bash
+cd 2.SandiaFlameD
+
+blockMesh
+foamRun
+```
+
+For parallel execution, use the supplied decomposition settings:
+
+```bash
+decomposePar
+mpirun -np 4 foamRun -parallel
+reconstructPar
+```
 
 # 3. H₂/Air Counterflow Flame
 
@@ -97,6 +123,23 @@ Y_O2 = 0.23
 ```
 
 The simulation is performed using custom `DTLreactingFoam` solver.
+
+### Run
+
+```bash
+cd 3.counterFlowFlame
+
+blockMesh
+foamRun
+```
+
+Parallel execution can be performed in the same way:
+
+```bash
+decomposePar
+mpirun -np 4 foamRun -parallel
+reconstructPar
+```
 
 ---
 
