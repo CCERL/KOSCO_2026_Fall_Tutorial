@@ -1,7 +1,6 @@
 # KOSCO 2026 Fall Tutorial — Day 3
 
 ![OpenFOAM](https://img.shields.io/badge/OpenFOAM-12-1f6feb)
-![Tutorial](https://img.shields.io/badge/KOSCO-2026%20Fall%20Tutorial-orange)
 
 OpenFOAM tutorial cases prepared for **Day 3 of the KOSCO 2026 Fall Tutorial**.
 
@@ -33,8 +32,12 @@ The first two cases use solvers and models available in the standard OpenFOAM 12
 
 > **Note**
 >
-> `3.counterFlowFlame` uses the custom `DTLreactingFoam` solver together with the detailed-transport models used in this tutorial.  
-> A standard OpenFOAM 12 installation alone may therefore not be sufficient to run Case 3.
+> `3.counterFlowFlame` uses the custom `DTLreactingFoam` solver together with the detailed-transport models used in this tutorial.
+> A standard OpenFOAM 12 installation alone is therefore not sufficient to run Case 3.
+>
+> Please install `DTLreactingFoam-12` before running this case:
+>
+> https://github.com/danhnam11/DTLreactingFoam-12
 
 ---
 
@@ -68,63 +71,28 @@ The simulation is performed using standard `incompressibleFluid` module in OpenF
 
 [`2.SandiaFlameD`](./2.SandiaFlameD) introduces a reacting-flow calculation based on the well-known **Sandia Flame D** configuration.
 
-The case uses an axisymmetric wedge mesh with separate methane-fuel, pilot, and coflow-air inlets. The prescribed inlet velocities are approximately:
-
-- fuel jet: `49.6 m/s`
-- pilot: `11.4 m/s`
-- coflow air: `0.9 m/s`
-
+The case uses an axisymmetric wedge mesh with separate methane-fuel, pilot, and coflow-air inlets.
 The simulation is performed using standard `multicomponentFluid` module in OpenFOAM-12.
-
 
 # 3. H₂/Air Counterflow Flame
 
 [`3.counterFlowFlame`](./3.counterFlowFlame) is an opposed-flow reacting case in which a hydrogen-containing fuel stream and an air stream enter from opposite sides of the domain.
 
 The supplied inlet velocities are:
-
 ```text
 fuel : 0.5 m/s
 air  : 0.5 m/s
 ```
-
 Both inlet temperatures are initialized at `300 K`. A hot internal field is supplied to initialize the reacting region.
-
 The fuel-side hydrogen mass fraction is:
-
 ```text
 Y_H2 = 0.0673
 ```
-
 while the air-side oxygen mass fraction is:
-
 ```text
 Y_O2 = 0.23
 ```
-
-## Repository structure
-
-```text
-KOSCO_2026_Fall_Tutorial/
-├── 1.cavity/
-│   ├── 0/
-│   ├── constant/
-│   └── system/
-│
-├── 2.SandiaFlameD/
-│   ├── 0/
-|   ├── chemkin/
-│   ├── constant/
-│   └── system/
-│
-├── 3.counterFlowFlame/
-│   ├── 0/
-|   ├── chemkin/
-│   ├── constant/
-│   └── system/
-│
-└── README.md
-```
+The simulation is performed using custom `DTLreactingFoam` solver.
 
 ---
 
