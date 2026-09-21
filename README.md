@@ -60,7 +60,7 @@ git pull
 
 ---
 
-# 1. Lid-Driven Cavity
+## 1. Lid-Driven Cavity
 
 [`1.cavity`](./1.cavity) is a compact introductory case for reviewing the basic structure of an OpenFOAM simulation.
 
@@ -77,7 +77,7 @@ blockMesh
 foamRun
 ```
 
-# 2. Sandia Flame D
+## 2. Sandia Flame D
 
 [`2.SandiaFlameD`](./2.SandiaFlameD) introduces a reacting-flow calculation based on the well-known **Sandia Flame D** configuration.
 
@@ -108,7 +108,7 @@ reconstructPar
 rm -r processor*
 ```
 
-# 3. H₂/Air Counterflow Flame
+## 3. H₂/Air Counterflow Flame
 
 [`3.counterFlowFlame`](./3.counterFlowFlame) is an opposed-flow reacting case in which a hydrogen-containing fuel stream and an air stream enter from opposite sides of the domain.
 
