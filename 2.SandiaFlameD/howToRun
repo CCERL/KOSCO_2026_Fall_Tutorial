@@ -1,7 +1,0 @@
-blockMesh
-setFields
-decomposeParDict
-run (foamRun or mpirun -np 4 foamRun -parallel > log)
-reconstructPar
-touch a.foam
-open paraview
