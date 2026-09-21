@@ -149,6 +149,7 @@ blockMesh
 decomposePar
 mpirun -np 4 foamRun -parallel
 reconstructPar
+rm -r processor*
 ```
 
 ---
