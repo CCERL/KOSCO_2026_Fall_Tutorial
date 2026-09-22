@@ -48,7 +48,7 @@ The recommended location is your OpenFOAM run directory:
 ```bash
 mkdir -p $FOAM_RUN
 cd $FOAM_RUN
-git clone https://github.com/jjkimCombustion/KOSCO_2026_Fall_Tutorial.git
+git clone https://github.com/CCERL/KOSCO_2026_Fall_Tutorial.git
 cd KOSCO_2026_Fall_Tutorial
 ```
 
